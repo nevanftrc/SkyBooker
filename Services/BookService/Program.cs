@@ -4,13 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
-using BookService.Messaging;
-
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Rabbit
-builder.Services.AddSingleton<RabbitMqPublisher>();
 
 // JWT Config
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "superSecretKey12345";

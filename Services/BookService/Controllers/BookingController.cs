@@ -12,12 +12,9 @@ namespace BookService.Controllers;
 public class BookingController : ControllerBase
 {
     private readonly BookDbContext _context;
-    private readonly RabbitMqPublisher _publisher;
-
-    public BookingController(BookDbContext context, RabbitMqPublisher publisher)
+    public BookingController(BookDbContext context)
     {
         _context = context;
-        _publisher = publisher;
     }
 
     [HttpPost]
@@ -30,7 +27,6 @@ public class BookingController : ControllerBase
         await _context.SaveChangesAsync();
 
         string message = $"Reservation: {booking.PassengerFirstname} {booking.PassengerLastname}, Flight: {booking.FlightId}, Tickets: {booking.TicketCount}";
-        _publisher.Publish(message);
 
         return CreatedAtAction(nameof(GetBookingById), new { id = booking.Id }, booking);
     }
