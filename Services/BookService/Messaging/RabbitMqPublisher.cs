@@ -14,24 +14,17 @@ public class RabbitMqPublisher
 
     public void Publish(string message)
     {
-        var factory = new ConnectionFactory()
+        var factory = new ConnectionFactory
         {
-            HostName = _config["RabbitMQ:Host"],
-            UserName = _config["RabbitMQ:Username"],
-            Password = _config["RabbitMQ:Password"],
-            Port = int.Parse(_config["RabbitMQ:Port"] ?? "5672")
+            HostName = "localhost"
         };
 
         using var connection = factory.CreateConnection();
         using var channel = connection.CreateModel();
 
-        channel.QueueDeclare(queue: "bookingQueue", durable: true, exclusive: false, autoDelete: false, arguments: null);
+        channel.QueueDeclare("bookingQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
 
         var body = Encoding.UTF8.GetBytes(message);
-
-        channel.BasicPublish(exchange: "",
-                             routingKey: "bookingQueue",
-                             basicProperties: null,
-                             body: body);
+        channel.BasicPublish("", "bookingQueue", null, body);
     }
 }
