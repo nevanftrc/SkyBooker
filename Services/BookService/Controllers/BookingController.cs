@@ -2,7 +2,6 @@ using BookService.Data;
 using BookService.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using BookService.Messaging;
 
 namespace BookService.Controllers;
 
