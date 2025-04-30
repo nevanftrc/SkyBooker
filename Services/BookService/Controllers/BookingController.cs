@@ -8,17 +8,18 @@ namespace BookService.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize] // Protegido por JWT
+[Authorize]
 public class BookingController : ControllerBase
 {
     private readonly BookDbContext _context;
+    private readonly RabbitMqPublisher _publisher;
 
-    public BookingController(BookDbContext context)
+    public BookingController(BookDbContext context, RabbitMqPublisher publisher)
     {
         _context = context;
+        _publisher = publisher;
     }
 
-    // POST /api/booking
     [HttpPost]
     public async Task<IActionResult> CreateBooking(Booking booking)
     {
@@ -30,18 +31,16 @@ public class BookingController : ControllerBase
 
         string message = $"Reservation: {booking.PassengerFirstname} {booking.PassengerLastname}, Flight: {booking.FlightId}, Tickets: {booking.TicketCount}";
         _publisher.Publish(message);
-        
+
         return CreatedAtAction(nameof(GetBookingById), new { id = booking.Id }, booking);
     }
 
-    // GET /api/booking
     [HttpGet]
     public ActionResult<IEnumerable<Booking>> GetAllBookings()
     {
         return Ok(_context.Bookings.ToList());
     }
 
-    // GET /api/booking/{id}
     [HttpGet("{id}")]
     public ActionResult<Booking> GetBookingById(int id)
     {
@@ -50,13 +49,4 @@ public class BookingController : ControllerBase
             return NotFound();
         return Ok(booking);
     }
-
-    private readonly RabbitMqPublisher _publisher;
-
-    public BookingController(BookDbContext context, RabbitMqPublisher publisher)
-    {
-        _context = context;
-        _publisher = publisher;
-    }
-
 }
