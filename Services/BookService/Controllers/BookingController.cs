@@ -26,6 +26,10 @@ public class BookingController : ControllerBase
 
         _context.Bookings.Add(booking);
         await _context.SaveChangesAsync();
+
+        string message = $"Reservation: {booking.PassengerFirstname} {booking.PassengerLastname}, Flight: {booking.FlightId}, Tickets: {booking.TicketCount}";
+        _publisher.Publish(message);
+        
         return CreatedAtAction(nameof(GetBookingById), new { id = booking.Id }, booking);
     }
 
@@ -45,4 +49,13 @@ public class BookingController : ControllerBase
             return NotFound();
         return Ok(booking);
     }
+
+    private readonly RabbitMqPublisher _publisher;
+
+    public BookingController(BookDbContext context, RabbitMqPublisher publisher)
+    {
+        _context = context;
+        _publisher = publisher;
+    }
+
 }

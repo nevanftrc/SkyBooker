@@ -7,6 +7,9 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Rabbit
+builder.Services.AddSingleton<RabbitMqPublisher>();
+
 // JWT Config
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "superSecretKey12345";
 
