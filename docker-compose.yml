@@ -1,15 +1,6 @@
 version: '3.9'
 
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: guest
-      RABBITMQ_DEFAULT_PASS: guest
 
   mongodb:
     image: mongo
@@ -20,12 +11,12 @@ services:
       - mongo-data:/data/db
 
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-lts
+    image: mcr.microsoft.com/mssql/server:2019-latest
     container_name: sqlserver
     ports:
       - "1433:1433"
     environment:
-      SA_PASSWORD: "Your_password123"
+      SA_PASSWORD: "P@ssw0rd!"
       ACCEPT_EULA: "Y"
     volumes:
       - sqlserver-data:/var/opt/mssql
