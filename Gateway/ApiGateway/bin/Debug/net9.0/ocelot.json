@@ -1,0 +1,26 @@
+{
+    "Routes": [
+      {
+        "DownstreamPathTemplate": "/api/booking",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "bookservice", "Port": 80 }
+        ],
+        "UpstreamPathTemplate": "/booking",
+        "UpstreamHttpMethod": [ "GET", "POST" ]
+      },
+      {
+        "DownstreamPathTemplate": "/api/booking/{id}",
+        "DownstreamScheme": "http",
+        "DownstreamHostAndPorts": [
+          { "Host": "bookservice", "Port": 80 }
+        ],
+        "UpstreamPathTemplate": "/booking/{id}",
+        "UpstreamHttpMethod": [ "GET" ]
+      }
+    ],
+    "GlobalConfiguration": {
+      "BaseUrl": "http://localhost:5000"
+    }
+  }
+  
