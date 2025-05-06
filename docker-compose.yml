@@ -21,6 +21,24 @@ services:
     volumes:
       - sqlserver-data:/var/opt/mssql
 
+  bookservice:
+    build:
+      context: ./Services/BookService
+    container_name: bookservice
+    ports:
+      - "5003:80"
+    depends_on:
+      - sqlserver
+
+  apigateway:
+    build:
+      context: ./Gateway/ApiGateway
+    container_name: apigateway
+    ports:
+      - "5000:80"
+    depends_on:
+      - bookservice
+
 volumes:
   mongo-data:
   sqlserver-data:
