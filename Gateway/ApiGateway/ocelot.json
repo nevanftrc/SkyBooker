@@ -26,6 +26,15 @@
       ],
       "UpstreamPathTemplate": "/booking/swagger/index.html",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/swagger/v1/swagger.json",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "bookservice", "Port": 80 }
+      ],
+      "UpstreamPathTemplate": "/booking/swagger/v1/swagger.json",
+      "UpstreamHttpMethod": [ "GET" ]
     }
   ],
   "GlobalConfiguration": {
