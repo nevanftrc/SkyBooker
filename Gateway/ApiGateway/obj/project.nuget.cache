@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "BuO8gH5fv1o=",
+  "dgSpecHash": "mXHSL6q//IU=",
   "success": true,
   "projectFilePath": "C:\\Users\\Nevan Alberola\\source\\repos\\SkyBooker\\Gateway\\ApiGateway\\ApiGateway.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\ipaddressrange\\6.2.0\\ipaddressrange.6.2.0.nupkg.sha512",
-    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\9.0.4\\microsoft.aspnetcore.jsonpatch.9.0.4.nupkg.sha512",
-    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.middlewareanalysis\\9.0.4\\microsoft.aspnetcore.middlewareanalysis.9.0.4.nupkg.sha512",
-    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\9.0.4\\microsoft.aspnetcore.mvc.newtonsoftjson.9.0.4.nupkg.sha512",
+    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\8.0.15\\microsoft.aspnetcore.jsonpatch.8.0.15.nupkg.sha512",
+    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.middlewareanalysis\\8.0.15\\microsoft.aspnetcore.middlewareanalysis.8.0.15.nupkg.sha512",
+    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\8.0.15\\microsoft.aspnetcore.mvc.newtonsoftjson.8.0.15.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.4\\microsoft.extensions.configuration.9.0.4.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.4\\microsoft.extensions.configuration.abstractions.9.0.4.nupkg.sha512",
@@ -30,7 +30,7 @@
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\ocelot\\24.0.0\\ocelot.24.0.0.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\polly\\7.2.4\\polly.7.2.4.nupkg.sha512",
     "C:\\Users\\Nevan Alberola\\.nuget\\packages\\polly.extensions.http\\3.0.0\\polly.extensions.http.3.0.0.nupkg.sha512",
-    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\system.diagnostics.diagnosticsource\\4.7.1\\system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512"
+    "C:\\Users\\Nevan Alberola\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.4\\system.diagnostics.diagnosticsource.9.0.4.nupkg.sha512"
   ],
   "logs": []
 }
