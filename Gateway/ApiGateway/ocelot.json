@@ -1,24 +1,6 @@
 {
   "Routes": [
     {
-      "DownstreamPathTemplate": "/api/booking",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        { "Host": "bookservice", "Port": 80 }
-      ],
-      "UpstreamPathTemplate": "/booking",
-      "UpstreamHttpMethod": [ "GET", "POST" ]
-    },
-    {
-      "DownstreamPathTemplate": "/api/booking/{id}",
-      "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        { "Host": "bookservice", "Port": 80 }
-      ],
-      "UpstreamPathTemplate": "/booking/{id}",
-      "UpstreamHttpMethod": [ "GET" ]
-    },
-    {
       "DownstreamPathTemplate": "/swagger/index.html",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
@@ -34,6 +16,24 @@
         { "Host": "bookservice", "Port": 80 }
       ],
       "UpstreamPathTemplate": "/booking/swagger/v1/swagger.json",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "bookservice", "Port": 80 }
+      ],
+      "UpstreamPathTemplate": "/booking",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/booking/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "bookservice", "Port": 80 }
+      ],
+      "UpstreamPathTemplate": "/booking/{id}",
       "UpstreamHttpMethod": [ "GET" ]
     }
   ],
