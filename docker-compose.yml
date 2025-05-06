@@ -26,19 +26,33 @@ services:
       context: ./Services/BookService
     container_name: bookservice
     ports:
-      - "5003:80"
+      - "5003:8080"  # Puerto interno 8080 desde override
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
     depends_on:
       - sqlserver
+    networks:
+      - skybooker-network
 
   apigateway:
     build:
       context: ./Gateway/ApiGateway
     container_name: apigateway
     ports:
-      - "5000:80"
+      - "5000:8080"  # Puerto interno 8080 desde override
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
     depends_on:
       - bookservice
+    networks:
+      - skybooker-network
 
 volumes:
   mongo-data:
   sqlserver-data:
+
+networks:
+  skybooker-network:
+    driver: bridge
