@@ -7,10 +7,8 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// JWT Config
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "superSecretKey12345";
 
-// SQL Server Connection
 builder.Services.AddDbContext<BookDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -33,6 +31,7 @@ builder.Services.AddAuthentication(opt =>
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSingleton<RabbitMqPublisher>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Booking API", Version = "v1" });
