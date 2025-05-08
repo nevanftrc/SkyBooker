@@ -7,7 +7,7 @@ namespace FlightService.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize] // Protege con JWT
+[Authorize] 
 public class FlightController : ControllerBase
 {
     private readonly FlightServiceDb _db;
@@ -17,7 +17,6 @@ public class FlightController : ControllerBase
         _db = db;
     }
 
-    // POST /api/flight
     [HttpPost]
     public IActionResult CreateFlight([FromBody] Flight flight)
     {
@@ -25,14 +24,12 @@ public class FlightController : ControllerBase
         return CreatedAtAction(nameof(GetFlight), new { id = flight.Id }, flight);
     }
 
-    // GET /api/flight
     [HttpGet]
     public ActionResult<List<Flight>> GetFlights()
     {
         return Ok(_db.Get());
     }
 
-    // GET /api/flight/{id}
     [HttpGet("{id}")]
     public ActionResult<Flight> GetFlight(string id)
     {
