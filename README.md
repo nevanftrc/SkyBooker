@@ -72,4 +72,3 @@ Testet Validierung und Controllerlogik mit `xUnit` & `Moq`.
 ## 👤 Autor
 
 - **Name:** Nevan Alberola  
-- **Projektzeitraum:** 30.04.2025 – 08.05.2025  
