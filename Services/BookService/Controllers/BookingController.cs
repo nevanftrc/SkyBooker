@@ -2,6 +2,7 @@ using BookService.Data;
 using BookService.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using BookService.Messaging; // Asegúrate que esta referencia esté bien puesta
 
 namespace BookService.Controllers;
 
@@ -11,9 +12,12 @@ namespace BookService.Controllers;
 public class BookingController : ControllerBase
 {
     private readonly BookDbContext _context;
-    public BookingController(BookDbContext context)
+    private readonly RabbitMqPublisher _publisher;
+
+    public BookingController(BookDbContext context, RabbitMqPublisher publisher)
     {
         _context = context;
+        _publisher = publisher;
     }
 
     [HttpPost]
@@ -25,7 +29,8 @@ public class BookingController : ControllerBase
         _context.Bookings.Add(booking);
         await _context.SaveChangesAsync();
 
-        string message = $"Reservation: {booking.PassengerFirstname} {booking.PassengerLastname}, Flight: {booking.FlightId}, Tickets: {booking.TicketCount}";
+        string message = $"Reservierung erstellt: {booking.PassengerFirstname} {booking.PassengerLastname}, Flug-ID: {booking.FlightId}, Tickets: {booking.TicketCount}";
+        _publisher.Send(message);
 
         return CreatedAtAction(nameof(GetBookingById), new { id = booking.Id }, booking);
     }

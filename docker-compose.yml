@@ -21,17 +21,27 @@ services:
     volumes:
       - sqlserver-data:/var/opt/mssql
 
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"     # para comunicación interna entre servicios
+      - "15672:15672"   # para acceso a la interfaz web de gestión
+    networks:
+      - skybooker-network
+
   bookservice:
     build:
       context: ./Services/BookService
     container_name: bookservice
     ports:
-      - "5003:8080"  # Puerto interno 8080 desde override
+      - "5003:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
     depends_on:
       - sqlserver
+      - rabbitmq
     networks:
       - skybooker-network
 
@@ -40,12 +50,26 @@ services:
       context: ./Gateway/ApiGateway
     container_name: apigateway
     ports:
-      - "5000:8080"  
+      - "5000:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
     depends_on:
       - bookservice
+    networks:
+      - skybooker-network
+
+  messageservice:
+    build:
+      context: ./Services/MessageService
+    container_name: messageservice
+    ports:
+      - "5004:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    depends_on:
+      - rabbitmq
     networks:
       - skybooker-network
 
