@@ -40,7 +40,7 @@ services:
       context: ./Gateway/ApiGateway
     container_name: apigateway
     ports:
-      - "5000:8080"  # Puerto interno 8080 desde override
+      - "5000:8080"  
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080
