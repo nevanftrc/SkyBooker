@@ -1,0 +1,8 @@
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\bin\Debug\net9.0\.msCoverageSourceRootsMapping_MessageService.Tests
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\bin\Debug\net9.0\CoverletSourceRootsMapping_MessageService.Tests
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.csproj.AssemblyReference.cache
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.AssemblyInfoInputs.cache
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.AssemblyInfo.cs
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Nevan Alberola\source\repos\SkyBooker\Services\MessageService.Tests\obj\Debug\net9.0\MessageService.Tests.sourcelink.json
