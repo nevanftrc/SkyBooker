@@ -31,6 +31,8 @@ builder.Services.AddAuthentication(opt =>
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<BookingValidator>();
 builder.Services.AddSingleton<RabbitMqPublisher>();
 builder.Services.AddSwaggerGen(c =>
 {
